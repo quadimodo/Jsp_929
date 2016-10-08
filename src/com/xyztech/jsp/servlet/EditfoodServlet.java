@@ -3,6 +3,7 @@ package com.xyztech.jsp.servlet;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import javax.jms.Session;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -33,8 +34,8 @@ public class EditfoodServlet extends HttpServlet {
 		int fid=Integer.parseInt(request.getParameter("fid"));
 		FoodDao fooddao=new FoodDao();
 		FoodBean foodbean=fooddao.selectfood(fid);
-		fooddao.updatefood(foodbean);
-		
+		request.getSession().setAttribute("foodbean", foodbean);
+		response.sendRedirect("Menu/edit.jsp");
 	}
 
 }

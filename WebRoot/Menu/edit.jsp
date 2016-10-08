@@ -44,7 +44,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
    <tr>
         <td width="10%" class="tableleft">种类</td>
         <td>
-            <select name="ftid">
+            <select name="ftid" id="select_1">
             <option value="1">Pasta Plates</option><option value='2'   />&nbsp;Starters</option><option value='3'   />&nbsp;Salads</option><option value="4">Chef's Specials</option><option value='5'   />&nbsp;Fast Food</option><option value='6'   />&nbsp;Seafood Specials</option>             
             </select>
         </td>
@@ -79,7 +79,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <tr>
         <td class="tableleft"></td>
         <td>
-            <button type="submit" class="btn btn-primary" type="button">保存</button> &nbsp;&nbsp;<button type="button" class="btn btn-success" name="backid" id="backid">返回列表</button>
+            <button type="submit" class="btn btn-primary" type="button">修改</button> &nbsp;&nbsp;<button type="button" class="btn btn-success" name="backid" id="backid">返回列表</button>
         </td>
     </tr>
 </table>
@@ -93,4 +93,5 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		 });
 
     });
+    
 </script>
