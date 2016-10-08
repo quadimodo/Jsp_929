@@ -54,8 +54,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <th>图片路径</th>
         <th>菜品简介</th>
         <th>菜品价格</th>
-        <th>编辑</th>
-        <th>删除</th>
+        <th>操作</th>
     </tr>
     </thead>
     <c:forEach var="sp" items="${food }">
@@ -66,8 +65,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     		<td>${sp.picture }</td>
     		<td>${sp.fdetial }</td>
     		<td>${sp.fprice }</td>
-    		<td><a href="../EditfoodServlet?food=${sp }" >编辑</a></td>
-    		<td><a href="../DeletefoodServlet?fid=${sp.fid }" >删除</a></td>
+    		<td><a href="../EditfoodServlet?fid=${sp.fid }" >编辑</a>&nbsp;|&nbsp;<a href="../DeletefoodServlet?fid=${sp.fid }" >删除</a></td>
+    		<td></td>
     	</tr>
     </c:forEach>
 	     <!-- <tr>

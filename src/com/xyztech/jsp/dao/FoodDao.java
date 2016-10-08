@@ -4,14 +4,15 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
+
 import java.util.ArrayList;
 
 import com.xyztech.jsp.bean.FoodBean;
-import com.xyztech.jsp.bean.PictureBean;
+
 
 
 public class FoodDao extends PublicConnection {
+	//显示所有菜品
 	public ArrayList<FoodBean> selectfood(){
 		Connection con=connections("RestaurantOfficialWebsite");
 		ResultSet rs=null;
@@ -34,6 +35,7 @@ public class FoodDao extends PublicConnection {
 		}
 		return null;
 	}
+	//增加菜品
 	public void insertfood(FoodBean foodbean){
 		Connection con=connections("RestaurantOfficialWebsite");
 		ResultSet rs=null;
@@ -58,7 +60,9 @@ public class FoodDao extends PublicConnection {
 			closeSql(con, pst, rs);
 		}
 	}
+	//删除菜品
 	public void deletefood(int fid){
+		
 		Connection con=connections("RestaurantOfficialWebsite");
 		ResultSet rs=null;
 		PreparedStatement pst=null;
@@ -77,5 +81,52 @@ public class FoodDao extends PublicConnection {
 			closeSql(con, pst, rs);
 		}
 	}
-	
+	//根据fid查询菜品
+	public FoodBean selectfood(int fid){
+		Connection con=connections("RestaurantOfficialWebsite");
+		ResultSet rs=null;
+		PreparedStatement pst=null;
+		String sql="select fid,b.ftid,ppath,fname,fdetial,fprice from food as a,foodtype as b,picture as c where a.ftid=b.ftid and a.pid =c.pid and fid=?";
+		try {
+			pst=con.prepareStatement(sql);
+			pst.setInt(1, fid);
+			rs=pst.executeQuery();
+			if(rs.next()){
+				FoodBean foodbean=new FoodBean(rs.getInt(1), rs.getObject(2), rs.getObject(3), rs.getString(4), rs.getString(5),rs.getDouble(6));
+				return foodbean;
+			}
+		} catch (SQLException e) {
+			// TODO 自动生成的 catch 块
+			e.printStackTrace();
+		}finally{
+			closeSql(con, pst, rs);
+		}
+		return null;
+	}
+	//修改菜品
+	public void updatefood(FoodBean foodbean){
+
+		Connection con=connections("RestaurantOfficialWebsite");
+		ResultSet rs=null;
+		PreparedStatement pst=null;
+		String sql="update food set ftid=?,pid=?,fname=?,fdetial=?,fprice=?  where fid=?";
+		try {
+			pst=con.prepareStatement(sql);
+			pst.setObject(1, foodbean.getFoodtype());
+			pst.setObject(2, foodbean.getFprice());
+			pst.setString(3, foodbean.getFname());
+			pst.setString(4, foodbean.getFdetial());
+			pst.setString(5,foodbean.getFprice());
+			pst.setInt(6, foodbean.getFid());
+			int i=pst.executeUpdate();
+			if(i!=0){
+				System.out.println("成功修改fid="+foodbean.getFid());
+			}
+		} catch (SQLException e) {
+			// TODO 自动生成的 catch 块
+			e.printStackTrace();
+		}finally{
+			closeSql(con, pst, rs);
+		}
+	}
 }
