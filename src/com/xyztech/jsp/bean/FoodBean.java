@@ -1,8 +1,9 @@
 package com.xyztech.jsp.bean;
 
+import java.io.Serializable;
 import java.text.DecimalFormat;
 
-public class FoodBean {
+public class FoodBean implements Serializable{
 	private int fid;
 	private Object foodtype;
 	private Object picture;
@@ -46,12 +47,21 @@ public class FoodBean {
 	public void setFprice(double fprice) {
 		this.fprice = fprice;
 	}
-	public FoodBean(int fid, Object object, Object object2,
+	public FoodBean( Object object, Object object2,
 			String fname, String fdetial, double fprice) {
 		super();
-		this.fid = fid;
 		this.foodtype = object;
 		this.picture = object2;
+		this.fname = fname;
+		this.fdetial = fdetial;
+		this.fprice = fprice;
+	}
+	public FoodBean(int fid, Object foodtype, Object picture, String fname,
+			String fdetial, double fprice) {
+		super();
+		this.fid = fid;
+		this.foodtype = foodtype;
+		this.picture = picture;
 		this.fname = fname;
 		this.fdetial = fdetial;
 		this.fprice = fprice;

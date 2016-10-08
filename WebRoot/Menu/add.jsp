@@ -1,3 +1,9 @@
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%
+String path = request.getContextPath();
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -33,41 +39,42 @@
     </style>
 </head>
 <body>
-<form action="index.html" method="post" class="definewidth m20">
+<form action="../FoodInsertServelet" method="post" class="definewidth m20" accept-charset="UTF-8">
 <table class="table table-bordered table-hover m10">
-    <tr>
-        <td width="10%" class="tableleft">上级</td>
+   <tr>
+        <td width="10%" class="tableleft">种类</td>
         <td>
-            <select name="parentid">
-            <option value="0">一级菜单</option><option value='1'   />&nbsp;系统管理</option><option value='7'   />&nbsp;明信片管理</option>            </select>
+            <select name="ftid">
+            <option value="1">Pasta Plates</option><option value='2'   />&nbsp;Starters</option><option value='3'   />&nbsp;Salads</option><option value="4">Chef's Specials</option><option value='5'   />&nbsp;Fast Food</option><option value='6'   />&nbsp;Seafood Specials</option>             
+            </select>
         </td>
     </tr>
     <tr>
-        <td class="tableleft">名称</td>
-        <td><input type="text" name="name"/></td>
+        <td class="tableleft">图片名</td>
+        <td><input type="text" name="pname"/></td>
     </tr>
     <tr>
-        <td class="tableleft">Group</td>
-        <td><input type="text" name="group"/></td>
+        <td class="tableleft">图片路径</td>
+        <td><input type="text" name="ppath"/></td>
     </tr>
-    <tr>
-        <td class="tableleft">Model</td>
-        <td><input type="text" name="module"/></td>
-    </tr>
-    <tr>
-        <td class="tableleft">Action</td>
-        <td><input type="text" name="action"/></td>
-    </tr>
-    <tr>
-        <td class="tableleft">备注</td>
-        <td><input type="text" name="remark"/></td>
-    </tr>
-    <tr>
-        <td class="tableleft">状态</td>
+     <tr>
+        <td class="tableleft">画廊显示</td>
         <td>
-            <input type="radio" name="status" value="0" checked/> 启用
-            <input type="radio" name="status" value="1"/> 禁用
+            <input type="radio" name="pdisplay" value="1" /> 显示
+            <input type="radio" name="pdisplay" value="0" checked/> 禁用
         </td>
+    </tr>
+    <tr>
+        <td class="tableleft">菜名</td>
+        <td><input type="text" name="fname"/></td>
+    </tr>
+    <tr>
+        <td class="tableleft">简介</td>
+        <td><input type="text" name="fdetial"/></td>
+    </tr>
+    <tr>
+        <td class="tableleft">价格</td>
+        <td><input type="text" name="fprice"/></td>
     </tr>
     <tr>
         <td class="tableleft"></td>
@@ -82,7 +89,7 @@
 <script>
     $(function () {       
 		$('#backid').click(function(){
-				window.location.href="index.html";
+				window.location.href="index.jsp";
 		 });
 
     });

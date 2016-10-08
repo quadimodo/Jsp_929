@@ -1,6 +1,8 @@
 package com.xyztech.jsp.bean;
 
-public class FoodtypeBean {
+import java.io.Serializable;
+
+public class FoodtypeBean implements Serializable {
 	private int ftid;
 	private String ftname;
 	public int getFtid() {

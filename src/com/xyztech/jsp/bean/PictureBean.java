@@ -1,6 +1,8 @@
 package com.xyztech.jsp.bean;
 
-public class PictureBean {
+import java.io.Serializable;
+
+public class PictureBean implements Serializable {
 	private int pid;
 	private String pname;
 	private String ppath;
@@ -29,9 +31,8 @@ public class PictureBean {
 	public void setPdisplay(int pdisplay) {
 		this.pdisplay = pdisplay;
 	}
-	public PictureBean(int pid, String pname, String ppath, int pdisplay) {
+	public PictureBean( String pname, String ppath, int pdisplay) {
 		super();
-		this.pid = pid;
 		this.pname = pname;
 		this.ppath = ppath;
 		this.pdisplay = pdisplay;

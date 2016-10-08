@@ -15,6 +15,16 @@
     <servlet-name>FoodInsertServelet</servlet-name>
     <servlet-class>com.xyztech.jsp.servlet.FoodInsertServelet</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>DeletefoodServlet</servlet-name>
+    <servlet-class>com.xyztech.jsp.servlet.DeletefoodServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>EditfoodServlet</servlet-name>
+    <servlet-class>com.xyztech.jsp.servlet.EditfoodServlet</servlet-class>
+  </servlet>
+
+
 
 
 
@@ -29,6 +39,14 @@
   <servlet-mapping>
     <servlet-name>FoodInsertServelet</servlet-name>
     <url-pattern>/FoodInsertServelet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DeletefoodServlet</servlet-name>
+    <url-pattern>/DeletefoodServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>EditfoodServlet</servlet-name>
+    <url-pattern>/EditfoodServlet</url-pattern>
   </servlet-mapping>
 
 </web-app>

@@ -1,6 +1,8 @@
 package com.xyztech.jsp.bean;
 
-public class UserBean {
+import java.io.Serializable;
+
+public class UserBean implements Serializable{
 	private int uid;
 	private String uname;
 	private String upassword;
