@@ -37,14 +37,6 @@ public class PictureBean implements Serializable {
 		this.ppath = ppath;
 		this.pdisplay = pdisplay;
 	}
-	
-	public PictureBean(int pid, String pname, String ppath, int pdisplay) {
-		super();
-		this.pid = pid;
-		this.pname = pname;
-		this.ppath = ppath;
-		this.pdisplay = pdisplay;
-	}
 	public PictureBean() {
 		super();
 		// TODO 自动生成的构造函数存根
