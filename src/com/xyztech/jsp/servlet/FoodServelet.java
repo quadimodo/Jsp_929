@@ -28,8 +28,17 @@ public class FoodServelet extends HttpServlet {
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		response.setContentType("text/html;charset:utf-8");
-		ArrayList<FoodBean> al=new FoodDao().selectfood();
+		FoodDao fooddao=new FoodDao();
+		int currentpage=Integer.parseInt(request.getParameter("currentpage"));
+		ArrayList<FoodBean> al=fooddao.selectpagefood(currentpage);
+		//总行数
+		int totalnum=fooddao.selectcount();
+		//总页数totalpage=(totalnum-1)/8+1
+		int totalpage=(totalnum-1)/8+1;
 		request.getSession().setAttribute("food", al);
+		request.getSession().setAttribute("totalnum", totalnum);
+		request.getSession().setAttribute("totalpage", totalpage);
+		request.getSession().setAttribute("currentpage", currentpage);
 //		request.getRequestDispatcher("Menu/index.jsp").forward(request, response);
 		response.sendRedirect("Menu/index.jsp");
 	}

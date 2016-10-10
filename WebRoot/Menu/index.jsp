@@ -43,7 +43,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     菜品名称：
     <input type="text" name="menuname" id="menuname"class="abc input-default" placeholder="" value="">&nbsp;&nbsp; 
     <button type="submit" class="btn btn-primary">查询</button>&nbsp;&nbsp; <button type="button" class="btn btn-success" id="addnew">新增菜品</button>
-    <a href="../FoodServelet"><input type="button" class="btn btn-primary" value="刷新"></a>
+    <!-- <a href="../FoodServelet"><input type="button" class="btn btn-primary" value="刷新"></a> -->
+    <button type="button" class="btn btn-primary" id="reflesh">刷新</button>
 </form>
 <table class="table table-bordered table-hover definewidth m10">
     <thead>
@@ -69,84 +70,34 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     		<td></td>
     	</tr>
     </c:forEach>
-	     <!-- <tr>
-            <td colspan="5">系统管理</td>
-            <td><a href="edit.html">编辑</a></td>
-        </tr>
-        <tr>
-                <td>机构管理</td>
-                <td>Admin</td>
-                <td>Merchant</td>
-                <td>index</td>
-                <td>0</td>
-                <td><a href="edit.html">编辑</a></td>
-            </tr><tr>
-                <td>权限管理</td>
-                <td>Admin</td>
-                <td>Node</td>
-                <td>index</td>
-                <td>0</td>
-                <td><a href="edit.html">编辑</a></td>
-            </tr><tr>
-                <td>角色管理</td>
-                <td>Admin</td>
-                <td>Role</td>
-                <td>index</td>
-                <td>0</td>
-                <td><a href="edit.html">编辑</a></td>
-            </tr><tr>
-                <td>用户管理</td>
-                <td>Admin</td>
-                <td>User</td>
-                <td>index</td>
-                <td>0</td>
-                <td><a href="edit.html">编辑</a></td>
-            </tr><tr>
-                <td>菜单管理</td>
-                <td>Admin</td>
-                <td>Menu</td>
-                <td>index</td>
-                <td>0</td>
-                <td><a href="edit.html">编辑</a></td>
-            </tr><tr>
-            <td colspan="5">明信片管理</td>
-            <td><a href="edit.html">编辑</a></td>
-        </tr>
-        <tr>
-                <td>批次管理</td>
-                <td>Admin</td>
-                <td>LabelSet</td>
-                <td>index</td>
-                <td>0</td>
-                <td><a href="edit.html">编辑</a></td>
-            </tr><tr>
-                <td>明信片查询</td>
-                <td>Admin</td>
-                <td>Label</td>
-                <td>index</td>
-                <td>0</td>
-                <td><a href="edit.html">编辑</a></td>
-            </tr><tr>
-                <td>明信片生成</td>
-                <td>Admin</td>
-                <td>Label</td>
-                <td>apply</td>
-                <td>1</td>
-                <td><a href="edit.html">编辑</a></td>
-            </tr> --></table>
-
+	     </table>
+		<div class="inline pull-right page">
+	         ${sessionScope.totalnum } 条记录 ${currentpage }/${sessionScope.totalpage } 页   
+	         <a href="../FoodServelet?currentpage=${currentpage-1 }">上一页</a>  <a href="../FoodServelet?currentpage=${currentpage+1 }">下一页</a>     
+	         <!-- <span class='current'>1</span><a href='#'>2</a><a href='/chinapost/index.php?m=Label&a=index&p=3'>3</a><a href='#'>4</a><a href='#'>5</a> -->
+	         <c:forEach var="ys" begin="1" end="${sessionScope.totalpage }">
+	         	<a class="fenye" href="../FoodServelet?currentpage=${ys }">${ys }</a>
+	         </c:forEach>
+	         <a href="../FoodServelet?currentpage=${sessionScope.totalpage }" >最后一页</a>    
+         </div>
 </body>
 </html>
+
 <script>
     $(function () {
-        
-
 		$('#addnew').click(function(){
 
 				window.location.href="add.jsp";
 		 });
+		 $('#reflesh').click(function(){
 
-
+				window.location.href="../FoodServelet?currentpage=1";
+		 });
     });
-	
+    //jQuery 代码(将所有的p标记换成b标记）:
+	//$("p").replaceWith("<b>Paragraph. </b>");
+    var currentpage="${currentpage }";
+	//如果刚好在当前页，则变为红色span标签
+	alert($(".fenye:contains(currentpage)").val());
+	//$(".fenye[text='currentpage']").replaceWith("<span class='current'>"+currentpage+"</span>");
 </script>

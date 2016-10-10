@@ -3,6 +3,10 @@ package com.xyztech.jsp.bean;
 import java.io.Serializable;
 
 public class FoodtypeBean implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 8081148394328306808L;
 	private int ftid;
 	private String ftname;
 	public int getFtid() {
