@@ -32,13 +32,15 @@ public class servletlogin extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		String username=request.getParameter("username");
 		String password=request.getParameter("password");
+		String idcode=request.getParameter("idcode");
+		boolean ideq=idcode.equals((String)request.getSession().getAttribute("identitycode"));
 		UserBean userbean=new LoginDataBase().checkLogin(username, password);
-		if(userbean !=null){
+		if(userbean !=null&&ideq==true){
 //			response.sendRedirect("index.html");
 			request.setAttribute("beans", userbean);
 			request.getRequestDispatcher("index.jsp").forward(request, response);
 		}else{
-			response.sendRedirect("login.html");
+			response.sendRedirect("login2.html");
 		}
 	}
 

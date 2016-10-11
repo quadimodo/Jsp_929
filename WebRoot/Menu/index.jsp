@@ -98,6 +98,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	//$("p").replaceWith("<b>Paragraph. </b>");
     var currentpage="${currentpage }";
 	//如果刚好在当前页，则变为红色span标签
+	alert($(".fenye").html);
+	alert($(".fenye:contains(currentpage)"));
 	alert($(".fenye:contains(currentpage)").val());
 	//$(".fenye[text='currentpage']").replaceWith("<span class='current'>"+currentpage+"</span>");
 </script>

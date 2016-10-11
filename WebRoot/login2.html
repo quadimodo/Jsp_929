@@ -1,0 +1,53 @@
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE html>
+<html>	
+<head>
+<title>Kipy Login Form Responsive Widget Template  : w3layouts</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script type="text/javascript" src="Js/jquery.js"></script>
+<META http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<meta name="keywords" content="Kipy Login Form Responsive Templates, Iphone Widget Template, Smartphone login forms,Login form, Widget Template, Responsive Templates, a Ipad 404 Templates, Flat Responsive Templates" />
+<link href="Css/style2.css" rel='stylesheet' type='text/css' />
+<!--webfonts-->
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:700,300,600,800,400' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Marvel:400,700' rel='stylesheet' type='text/css'>
+<!--//webfonts-->
+</head>
+<body>
+<h1>后台管理系统</h1>
+	<div class="login-form">
+		<h2>Manager Login</h2>
+			<div class="form-info">
+					<form action="servletlogin" method="post" name="form2">
+							<input type="text" class="email" placeholder="Username" required="required" name="username"/>
+							<input type="password" class="password" placeholder="Password" required="required" name="password"/>
+							<input type="text" class="idcode" placeholder="IdentityCode" required="required" name="idcode"/>
+							<div class="copyrights">
+								<p>看不清？ <a id="image" href="javascript:void(0)" >换一个</a></p>
+							</div>
+						<ul class="login-buttons">
+							<li><input type="submit" value="LOGIN"/></li>
+							<li><a  class="hvr-sweep-to-left" onclick="document.form2.reset()" >REGISTER</a></li>
+							<div class="clear"> </div>
+						</ul>
+					</form>
+			</div>
+	</div>
+<!--copyrights-->
+
+<script type="text/javascript">
+  		$("#image").click(function(){
+  		//#3a3a46 url("../IdCodeServlet")no-repeat 308px 7px
+  			$(".idcode").css("background","#3a3a46 no-repeat 308px 7px url('IdCodeServlet?time="+Math.random()+"')");
+  		
+  		});
+  	
+  	</script>
+</body>
+</html>
