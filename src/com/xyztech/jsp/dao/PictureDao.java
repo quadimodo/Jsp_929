@@ -46,4 +46,24 @@ public class PictureDao extends PublicConnection {
 		}
 		return 0;
 	}
+	//根据ppath查询所有值
+	public PictureBean selectbyppath(String ppath){
+		Connection con=connections("RestaurantOfficialWebsite");
+		ResultSet rs=null;
+		PreparedStatement pst=null;
+		String sql="select * from picture where ppath=?";
+		try {
+			pst=con.prepareStatement(sql);
+			pst.setString(1, ppath);
+			rs=pst.executeQuery();
+			if(rs.next()){
+				PictureBean picturebean=new PictureBean(rs.getString(2), rs.getString(3), rs.getInt(4));
+				return picturebean;
+			}
+		} catch (SQLException e) {
+			// TODO 自动生成的 catch 块
+			e.printStackTrace();
+		}
+		return null;
+	}
 }

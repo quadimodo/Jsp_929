@@ -96,10 +96,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     });
     //jQuery 代码(将所有的p标记换成b标记）:
 	//$("p").replaceWith("<b>Paragraph. </b>");
-    var currentpage="${currentpage }";
+   /*  var currentpage="${currentpage }";
 	//如果刚好在当前页，则变为红色span标签
-	alert($(".fenye").html);
+	alert($(".fenye").text);
 	alert($(".fenye:contains(currentpage)"));
-	alert($(".fenye:contains(currentpage)").val());
+	alert($(".fenye:contains(currentpage)").val()); */
 	//$(".fenye[text='currentpage']").replaceWith("<span class='current'>"+currentpage+"</span>");
 </script>

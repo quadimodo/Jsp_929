@@ -68,8 +68,9 @@ public class IdCodeServlet extends HttpServlet {
 		//创建输出流
 		OutputStream out=response.getOutputStream();
 		//输出
-		ImageIO.write(image, "jpeg", out);
 		request.getSession().setAttribute("identitycode", identitycode);
+		ImageIO.write(image, "jpeg", out);
+		
 	}
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {

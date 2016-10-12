@@ -10,7 +10,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.xyztech.jsp.bean.FoodBean;
+import com.xyztech.jsp.bean.PictureBean;
 import com.xyztech.jsp.dao.FoodDao;
+import com.xyztech.jsp.dao.PictureDao;
 
 public class EditfoodServlet extends HttpServlet {
 
@@ -34,7 +36,9 @@ public class EditfoodServlet extends HttpServlet {
 		int fid=Integer.parseInt(request.getParameter("fid"));
 		FoodDao fooddao=new FoodDao();
 		FoodBean foodbean=fooddao.selectfood(fid);
+		PictureBean picturebean=new PictureDao().selectbyppath((String)foodbean.getPicture());
 		request.getSession().setAttribute("foodbean", foodbean);
+		request.getSession().setAttribute("picturebean", picturebean);
 		response.sendRedirect("Menu/edit.jsp");
 	}
 

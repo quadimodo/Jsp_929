@@ -41,19 +41,22 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <body>
 <form action="../FoodInsertServelet" method="post" class="definewidth m20" accept-charset="UTF-8">
 <table class="table table-bordered table-hover m10">
+	<%
+		
+	 %>
    <tr>
         <td width="10%" class="tableleft">种类</td>
         <td>
-        	<!-- 
-			<select name="DeptName">
-			      <c:forEach items="${deptList}" var="list">
-			          <option <c:if test='${employee.deptNo == list.deptNo}'>selected="selected"</c:if> value="${list.deptNo}">${list.deptName}</option>
+        	
+			<select name="ftid" id="select_1">
+			      <c:forEach items="${sessionScope.typelist}" var="typelist">
+			          <option <c:if test='${typelist.ftid == list.deptNo}'>selected="selected"</c:if> value="${typelist.ftid}">${typelist.ftname}</option>
 			      </c:forEach>
 			</select>
-        	 -->
-            <select name="ftid" id="select_1">
+        	
+            <!-- <select name="ftid" id="select_1">
             <option value="1">Pasta Plates</option><option value='2'   />&nbsp;Starters</option><option value='3'   />&nbsp;Salads</option><option value="4">Chef's Specials</option><option value='5'   />&nbsp;Fast Food</option><option value='6'   />&nbsp;Seafood Specials</option>             
-            </select>
+            </select> -->
         </td>
     </tr>
     <tr>

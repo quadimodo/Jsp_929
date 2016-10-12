@@ -35,11 +35,14 @@ public class FoodServelet extends HttpServlet {
 		int totalnum=fooddao.selectcount();
 		//×ÜÒ³Êýtotalpage=(totalnum-1)/8+1
 		int totalpage=(totalnum-1)/8+1;
-		request.getSession().setAttribute("food", al);
-		request.getSession().setAttribute("totalnum", totalnum);
-		request.getSession().setAttribute("totalpage", totalpage);
-		request.getSession().setAttribute("currentpage", currentpage);
-//		request.getRequestDispatcher("Menu/index.jsp").forward(request, response);
+		if(currentpage<=totalpage&&currentpage>0){
+			request.getSession().setAttribute("food", al);
+			request.getSession().setAttribute("totalnum", totalnum);
+			request.getSession().setAttribute("totalpage", totalpage);
+			request.getSession().setAttribute("currentpage", currentpage);
+//			request.getRequestDispatcher("Menu/index.jsp").forward(request, response);
+		
+		}
 		response.sendRedirect("Menu/index.jsp");
 	}
 
