@@ -47,25 +47,22 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
    <tr>
         <td width="10%" class="tableleft">种类</td>
         <td>
-        	
+        	<!-- 通过循环遍历，再用if判断是否和输入的ftid相同，相同就直接设置为默认值 -->
 			<select name="ftid" id="select_1">
 			      <c:forEach items="${sessionScope.typelist}" var="typelist">
-			          <option <c:if test='${typelist.ftid == list.deptNo}'>selected="selected"</c:if> value="${typelist.ftid}">${typelist.ftname}</option>
+			          <option <c:if test="${typelist.ftid==foodbean.foodtype}">selected="selected"</c:if> value="${typelist.ftid}">${typelist.ftname}</option>
 			      </c:forEach>
 			</select>
         	
-            <!-- <select name="ftid" id="select_1">
-            <option value="1">Pasta Plates</option><option value='2'   />&nbsp;Starters</option><option value='3'   />&nbsp;Salads</option><option value="4">Chef's Specials</option><option value='5'   />&nbsp;Fast Food</option><option value='6'   />&nbsp;Seafood Specials</option>             
-            </select> -->
         </td>
     </tr>
     <tr>
         <td class="tableleft">图片名</td>
-        <td><input type="text" name="pname"/></td>
+        <td><input type="text" name="pname" value="${picturebean.pname }"/></td>
     </tr>
     <tr>
         <td class="tableleft">图片路径</td>
-        <td><input type="text" name="ppath"/></td>
+        <td><input type="text" name="ppath" value="${picturebean.ppath }"/></td>
     </tr>
      <tr>
         <td class="tableleft">画廊显示</td>
@@ -76,15 +73,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     </tr>
     <tr>
         <td class="tableleft">菜名</td>
-        <td><input type="text" name="fname"/></td>
+        <td><input type="text" name="fname" value="${foodbean.fname }"/></td>
     </tr>
     <tr>
         <td class="tableleft">简介</td>
-        <td><input type="text" name="fdetial"/></td>
+        <td><input type="text" name="fdetial" value="${foodbean.fdetial }"/></td>
     </tr>
     <tr>
         <td class="tableleft">价格</td>
-        <td><input type="text" name="fprice"/></td>
+        <td><input type="text" name="fprice" value="${foodbean.fprice }"/></td>
     </tr>
     <tr>
         <td class="tableleft"></td>

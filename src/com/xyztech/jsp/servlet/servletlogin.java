@@ -31,8 +31,8 @@ public class servletlogin extends HttpServlet {
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		response.setContentType("text/html;charset=UTF-8");
-		request.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html");
+//		request.setCharacterEncoding("UTF-8");
 		//获取用户名密码以及验证码
 		String username=request.getParameter("username");
 		String password=request.getParameter("password");

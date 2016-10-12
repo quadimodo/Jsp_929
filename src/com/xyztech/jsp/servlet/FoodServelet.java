@@ -21,13 +21,13 @@ public class FoodServelet extends HttpServlet {
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		response.setContentType("text/html;charset:utf-8");
+		response.setContentType("text/html");
 		doPost(request, response);
 	}
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		response.setContentType("text/html;charset:utf-8");
+		response.setContentType("text/html");
 		FoodDao fooddao=new FoodDao();
 		int currentpage=Integer.parseInt(request.getParameter("currentpage"));
 		ArrayList<FoodBean> al=fooddao.selectpagefood(currentpage);
