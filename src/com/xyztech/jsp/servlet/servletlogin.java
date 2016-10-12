@@ -13,7 +13,7 @@ import com.xyztech.jsp.bean.UserBean;
 import com.xyztech.jsp.dao.FoodtypeDao;
 import com.xyztech.jsp.dao.LoginDataBase;
 
-public class servletlogin extends HttpServlet {
+public class Servletlogin extends HttpServlet {
 
 
 	/**

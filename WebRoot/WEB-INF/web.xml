@@ -4,8 +4,8 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
   <servlet>
-    <servlet-name>servletlogin</servlet-name>
-    <servlet-class>com.xyztech.jsp.servlet.servletlogin</servlet-class>
+    <servlet-name>Servletlogin</servlet-name>
+    <servlet-class>com.xyztech.jsp.servlet.Servletlogin</servlet-class>
   </servlet>
   <servlet>
     <servlet-name>FoodServelet</servlet-name>
@@ -43,8 +43,8 @@
 
 
   <servlet-mapping>
-    <servlet-name>servletlogin</servlet-name>
-    <url-pattern>/servletlogin</url-pattern>
+    <servlet-name>Servletlogin</servlet-name>
+    <url-pattern>/Servletlogin</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
     <servlet-name>FoodServelet</servlet-name>

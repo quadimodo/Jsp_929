@@ -39,7 +39,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     </style>
 </head>
 <body>
-<form action="../FoodInsertServelet" method="post" class="definewidth m20" accept-charset="UTF-8">
+<form name="form3" action="../FoodInsertServelet" method="post" class="definewidth m20" accept-charset="UTF-8">
 <table class="table table-bordered table-hover m10">
 	<%
 		
@@ -58,35 +58,35 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     </tr>
     <tr>
         <td class="tableleft">图片名</td>
-        <td><input type="text" name="pname" value="${picturebean.pname }"/></td>
+        <td><input type="text" name="pname" required="required" value="${picturebean.pname }"/></td>
     </tr>
     <tr>
         <td class="tableleft">图片路径</td>
-        <td><input type="text" name="ppath" value="${picturebean.ppath }"/></td>
+        <td><input type="text" name="ppath" required="required" value="${picturebean.ppath }"/></td>
     </tr>
      <tr>
         <td class="tableleft">画廊显示</td>
         <td>
-            <input type="radio" name="pdisplay" value="1" /> 显示
-            <input type="radio" name="pdisplay" value="0" checked/> 禁用
+            <input type="radio" name="pdisplay" value="1" <c:if test="${picturebean.pdisplay==1}">checked</c:if> /> 显示
+            <input type="radio" name="pdisplay" value="0" <c:if test="${picturebean.pdisplay==0}">checked</c:if>  />禁用
         </td>
     </tr>
     <tr>
         <td class="tableleft">菜名</td>
-        <td><input type="text" name="fname" value="${foodbean.fname }"/></td>
+        <td><input type="text" name="fname" required="required" value="${foodbean.fname }"/></td>
     </tr>
     <tr>
         <td class="tableleft">简介</td>
-        <td><input type="text" name="fdetial" value="${foodbean.fdetial }"/></td>
+        <td><input type="text" name="fdetial" required="required" value="${foodbean.fdetial }"/></td>
     </tr>
     <tr>
         <td class="tableleft">价格</td>
-        <td><input type="text" name="fprice" value="${foodbean.fprice }"/></td>
+        <td><input type="text" name="fprice" required="required" value="${foodbean.fprice }"/></td>
     </tr>
     <tr>
         <td class="tableleft"></td>
         <td>
-            <button type="submit" class="btn btn-primary" type="button">修改</button> &nbsp;&nbsp;<button type="button" class="btn btn-success" name="backid" id="backid">返回列表</button>
+            <button class="btn btn-primary" >修改</button> &nbsp;&nbsp;<button type="button" class="btn btn-success" name="backid" id="backid">返回列表</button>
         </td>
     </tr>
 </table>
@@ -97,6 +97,31 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     $(function () {       
 		$('#backid').click(function(){
 				window.location.href="index.jsp";
+		 });
+
+    });
+     $(function () {       
+		$("button.btn-primary").click(function(){
+			//获取ftid
+			var jdgval=new array();
+			var ftid=$("#select_1").val();
+			//获取pname
+			var pname=$("input[name=pname]").attr("value");
+			//获取ppath
+			var ppath=$("input[name=ppath]").attr("value");
+			//获取pdisplay
+			var pdisplay=$("input:radio:checked").val();
+			//获取fname
+			var fname=$("input[name=fname]").attr("value");
+			//获取fdetial
+			var fdtial=$("input[name=fdetial]").attr("value");
+			//获取fprice
+			var fprice=$("input[name=fprice]").attr("value");
+			//var fff=${foodbean.foodtype };
+			//jdgval[0]=fff==ftid;
+			alert("dkjsdjf");
+			//alert(jdgval[0]);
+			//document.form3.submit();
 		 });
 
     });
