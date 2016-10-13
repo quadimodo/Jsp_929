@@ -12,12 +12,20 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <link rel="stylesheet" type="text/css" href="../Css/bootstrap.css" />
     <link rel="stylesheet" type="text/css" href="../Css/bootstrap-responsive.css" />
     <link rel="stylesheet" type="text/css" href="../Css/style.css" />
+    <link rel="stylesheet" type="text/css" href="../Css/validationEngine.jquery.css" />
     <script type="text/javascript" src="../Js/jquery.js"></script>
+    <script type="text/javascript" src="../Js/jquery.validationEngine.min.js"></script>
+    <script type="text/javascript" src="../Js/jquery.validationEngine-zh_CN.js"></script>
     <script type="text/javascript" src="../Js/jquery.sorted.js"></script>
     <script type="text/javascript" src="../Js/bootstrap.js"></script>
     <script type="text/javascript" src="../Js/ckform.js"></script>
     <script type="text/javascript" src="../Js/common.js"></script>
-
+	<script type="text/javascript">
+		//初始化jquery validate
+		$(function(){
+			$("#formsub").validationEngine();
+		});
+	</script>
     <style type="text/css">
         body {
             padding-bottom: 40px;
@@ -39,11 +47,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     </style>
 </head>
 <body>
-<form name="form3" action="../FoodInsertServelet" method="post" class="definewidth m20" accept-charset="UTF-8">
+<form name="form3" action="../EditfoodServlet_2" method="post" id="formsub" class="definewidth m20" accept-charset="UTF-8">
 <table class="table table-bordered table-hover m10">
-	<%
-		
-	 %>
    <tr>
         <td width="10%" class="tableleft">种类</td>
         <td>
@@ -53,16 +58,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			          <option <c:if test="${typelist.ftid==foodbean.foodtype}">selected="selected"</c:if> value="${typelist.ftid}">${typelist.ftname}</option>
 			      </c:forEach>
 			</select>
-        	
         </td>
     </tr>
     <tr>
         <td class="tableleft">图片名</td>
-        <td><input type="text" name="pname" required="required" value="${picturebean.pname }"/></td>
+        <td><input type="text" name="pname"  class="validate[required]" value="${picturebean.pname }"/></td>
     </tr>
     <tr>
         <td class="tableleft">图片路径</td>
-        <td><input type="text" name="ppath" required="required" value="${picturebean.ppath }"/></td>
+        <td><input type="text" name="ppath"  class="validate[required]" value="${picturebean.ppath }"/></td>
     </tr>
      <tr>
         <td class="tableleft">画廊显示</td>
@@ -73,15 +77,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     </tr>
     <tr>
         <td class="tableleft">菜名</td>
-        <td><input type="text" name="fname" required="required" value="${foodbean.fname }"/></td>
+        <td><input type="text" name="fname"  class="validate[required]" value="${foodbean.fname }"/></td>
     </tr>
     <tr>
-        <td class="tableleft">简介</td>
-        <td><input type="text" name="fdetial" required="required" value="${foodbean.fdetial }"/></td>
+        <td class=" tableleft">简介</td>
+        <td><input type="text" name="fdetial" class="validate[required]"  value="${foodbean.fdetial }"/></td>
     </tr>
     <tr>
         <td class="tableleft">价格</td>
-        <td><input type="text" name="fprice" required="required" value="${foodbean.fprice }"/></td>
+        <td><input type="text" name="fprice" class="validate[custom[valiprice],required]" value="${foodbean.fprice }"/></td>
     </tr>
     <tr>
         <td class="tableleft"></td>
@@ -91,39 +95,20 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     </tr>
 </table>
 </form>
-</body>
-</html>
-<script>
-    $(function () {       
-		$('#backid').click(function(){
-				window.location.href="index.jsp";
-		 });
-
-    });
-     $(function () {       
+<script type="text/javascript">
+	$(function(){
 		$("button.btn-primary").click(function(){
-			//获取ftid
-			var jdgval=new array();
-			var ftid=$("#select_1").val();
-			//获取pname
-			var pname=$("input[name=pname]").attr("value");
-			//获取ppath
-			var ppath=$("input[name=ppath]").attr("value");
-			//获取pdisplay
-			var pdisplay=$("input:radio:checked").val();
-			//获取fname
-			var fname=$("input[name=fname]").attr("value");
-			//获取fdetial
-			var fdtial=$("input[name=fdetial]").attr("value");
-			//获取fprice
-			var fprice=$("input[name=fprice]").attr("value");
-			//var fff=${foodbean.foodtype };
-			//jdgval[0]=fff==ftid;
-			alert("dkjsdjf");
-			//alert(jdgval[0]);
-			//document.form3.submit();
-		 });
+			$("#formsub").submit();
+		});
+	
+	});
 
-    });
+	$(function () {       
+		$('#backid').click(function(){
+			window.location.href="index.jsp";
+		 });
+    });	
     
 </script>
+</body>
+</html>

@@ -1,5 +1,6 @@
 package com.xyztech.jsp.dao;
 
+import java.math.BigDecimal;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -116,7 +117,8 @@ public class FoodDao extends PublicConnection {
 			pst.setObject(2, foodbean.getFprice());
 			pst.setString(3, foodbean.getFname());
 			pst.setString(4, foodbean.getFdetial());
-			pst.setString(5,foodbean.getFprice());
+			pst.setBigDecimal(5, BigDecimal.valueOf(Double.parseDouble(foodbean.getFprice())));
+			
 			pst.setInt(6, foodbean.getFid());
 			int i=pst.executeUpdate();
 			if(i!=0){

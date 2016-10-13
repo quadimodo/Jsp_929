@@ -12,12 +12,20 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <link rel="stylesheet" type="text/css" href="../Css/bootstrap.css" />
     <link rel="stylesheet" type="text/css" href="../Css/bootstrap-responsive.css" />
     <link rel="stylesheet" type="text/css" href="../Css/style.css" />
+    <link rel="stylesheet" type="text/css" href="../Css/validationEngine.jquery.css" />
     <script type="text/javascript" src="../Js/jquery.js"></script>
+    <script type="text/javascript" src="../Js/jquery.validationEngine.min.js"></script>
+    <script type="text/javascript" src="../Js/jquery.validationEngine-zh_CN.js"></script>
     <script type="text/javascript" src="../Js/jquery.sorted.js"></script>
     <script type="text/javascript" src="../Js/bootstrap.js"></script>
     <script type="text/javascript" src="../Js/ckform.js"></script>
     <script type="text/javascript" src="../Js/common.js"></script>
-
+	<script type="text/javascript">
+		//初始化jquery validate
+		$(function(){
+			$("#form4").validationEngine();
+		});
+	</script>
     <style type="text/css">
         body {
             padding-bottom: 40px;
@@ -39,7 +47,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     </style>
 </head>
 <body>
-<form action="../FoodInsertServelet" method="post" class="definewidth m20" accept-charset="UTF-8">
+<form action="../FoodInsertServelet" method="post" id="form4" class="definewidth m20" accept-charset="UTF-8">
 <table class="table table-bordered table-hover m10">
    <tr>
         <td width="10%" class="tableleft">种类</td>
@@ -51,11 +59,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     </tr>
     <tr>
         <td class="tableleft">图片名</td>
-        <td><input type="text" name="pname"/></td>
+        <td><input type="text" class="validate[required]" name="pname"/></td>
     </tr>
     <tr>
         <td class="tableleft">图片路径</td>
-        <td><input type="text" name="ppath"/></td>
+        <td><input type="text" class="validate[required]" name="ppath"/></td>
     </tr>
      <tr>
         <td class="tableleft">画廊显示</td>
@@ -66,15 +74,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     </tr>
     <tr>
         <td class="tableleft">菜名</td>
-        <td><input type="text" name="fname"/></td>
+        <td><input type="text" class="validate[required]" name="fname"/></td>
     </tr>
     <tr>
         <td class="tableleft">简介</td>
-        <td><input type="text" name="fdetial"/></td>
+        <td><input type="text" class="validate[required]" name="fdetial"/></td>
     </tr>
     <tr>
         <td class="tableleft">价格</td>
-        <td><input type="text" name="fprice"/></td>
+        <td><input type="text" class="validate[custom[valiprice],required]" name="fprice"/></td>
     </tr>
     <tr>
         <td class="tableleft"></td>

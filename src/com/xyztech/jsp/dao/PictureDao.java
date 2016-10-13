@@ -66,4 +66,6 @@ public class PictureDao extends PublicConnection {
 		}
 		return null;
 	}
+	
+
 }
